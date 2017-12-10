@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +13,7 @@
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="assets/css/scrolling-nav.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
@@ -23,7 +24,7 @@
   <body id="page-top">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="#page-top">me hungry</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,82 +46,54 @@
       </div>
     </nav>
 
-    <header class="bg-primary text-white">
-      
-      <div class="container text-center col-md-6 align-self-center">
+    <header class="bg-info text-white">
+      <div class="container col-md-6 text-center align-self-center">
         <img src="assets/css/Light.png" style="width: 100%; height: 100%; margin:10px;"/>
         <p>eat your emotions.</p>
-
-        <div class="form" role="form">
-          <input type="text" id="zip-input" placeholder="enter your zip code"><br>
-          <a id="zip-submit" class="btn btn-outline-primary btn-lg js-scroll-trigger" href="#feel">Start</a>
-        </div>
-    </div>
+          <div class="form" role="form">
+            <input type="text" id="zip-input" placeholder="enter your zip code"><br>
+            <a id="zip-submit" class="btn btn-outline-primary btn-lg js-scroll-trigger" href="#feel">Start</a>
+          </div>
+      </div>
     </header>
 
     <section id="feel" class="vert-center">
-          <div class="container text-center col-md-6 align-self-center">
+      <div class="container col-md-6 text-center align-self-center canvas-interactive-wrapper">
+          <canvas id="canvas-interactive"></canvas>
+          <div class="cta-wrapper">
             <h2 class="display-2">how do you feel?</h1>
-            <p class="lead"><em>"it's about the journey, not the desination" - someone</em></p>
+            <p class="lead"><em>tell us how you're feeling so we can get you to the right place</em></p>
              <div class="form" role="form">
-                <button class="btn btn-outline-primary btn-lg feel-buttons" data-value="happy">Happy</button>
-                <button class="btn btn-outline-primary btn-lg feel-buttons" data-value="sad">Sad</button>
-                <button class="btn btn-outline-primary btn-lg feel-buttons" data-value="angry">Angry</button>
-                <button class="btn btn-outline-primary btn-lg feel-buttons" data-value="excited">Excited</button>
-              </div>
-                <h2 class="display-2">how do you feel?</h1>
-            <p class="lead"><em>"it's about the journey, not the desination" - someone</em></p>
-             <div class="form" role="form">
-                <button class="btn btn-outline-primary btn-lg feel-buttons" data-value="happy">Happy</button>
-                <button class="btn btn-outline-primary btn-lg feel-buttons" data-value="sad">Sad</button>
-                <button class="btn btn-outline-primary btn-lg feel-buttons" data-value="angry">Angry</button>
-                <button class="btn btn-outline-primary btn-lg feel-buttons" data-value="excited">Excited</button>
-              </div>
-                <h2 class="display-2">how do you feel?</h1>
-            <p class="lead"><em>"it's about the journey, not the desination" - someone</em></p>
-             <div class="form" role="form">
-                <button class="btn btn-outline-primary btn-lg feel-buttons" data-value="happy">Happy</button>
-                <button class="btn btn-outline-primary btn-lg feel-buttons" data-value="sad">Sad</button>
-                <button class="btn btn-outline-primary btn-lg feel-buttons" data-value="angry">Angry</button>
-                <button class="btn btn-outline-primary btn-lg feel-buttons" data-value="excited">Excited</button>
-              </div>
-                <h2 class="display-2">how do you feel?</h1>
-            <p class="lead"><em>"it's about the journey, not the desination" - someone</em></p>
-             <div class="form" role="form">
-                <button class="btn btn-outline-primary btn-lg feel-buttons" data-value="happy">Happy</button>
-                <button class="btn btn-outline-primary btn-lg feel-buttons" data-value="sad">Sad</button>
-                <button class="btn btn-outline-primary btn-lg feel-buttons" data-value="angry">Angry</button>
-                <button class="btn btn-outline-primary btn-lg feel-buttons" data-value="excited">Excited</button>
+                <a href="#default-state" id="default-state-cta" class="btn btn-outline-primary btn-lg feel-buttons active" data-value="happy">Happy</a>
+                <a href="violet-state" id="violet-state-cta" class="btn btn-outline-primary btn-lg feel-buttons" data-value="sad">Sad</a>
+                <a href="orange-state" id="orange-state-cta" class="btn btn-outline-primary btn-lg feel-buttons" data-value="angry">Angry</a>
+                <a href="orange-state" id="orange-state-cta" class="btn btn-outline-primary btn-lg feel-buttons" data-value="excited">Excited</a>
               </div>
           </div>
-    </section>
-
-    <section id="services" class="bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2>Services we offer</h2>
-            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut optio velit inventore, expedita quo laboriosam possimus ea consequatur vitae, doloribus consequuntur ex. Nemo assumenda laborum vel, labore ut velit dignissimos.</p>
-          </div>
-        </div>
       </div>
     </section>
 
-    <section id="contact">
-      <div class="container">
+    <section class="bg-light" id="results">
+      <div class="container-fluid">
         <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2>Contact us</h2>
-            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero odio fugiat voluptatem dolor, provident officiis, id iusto! Obcaecati incidunt, qui nihil beatae magnam et repudiandae ipsa exercitationem, in, quo totam.</p>
+          <div id="listings-column" class="bg-info" >
+            <div class="col-12 col-md-4">
+              <h3>results</h3>
+            </div>
+          </div>
+            <div id="map-column" class="bg-light">
+               <div class="col-0 col-md-8">
+              <h3>map</h3>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-5 bg-dark">
+    <footer class="py-3 bg-dark">
       <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+        <p class="m-0 text-center text-white">me hungry &copy; 2017</p>
       </div>
       <!-- /.container -->
     </footer>
@@ -134,6 +107,10 @@
 
     <!-- Custom JavaScript for this theme -->
     <script src="assets/js/scrolling-nav.js"></script>
+
+    <!-- Granim JS -->
+    <script type="text/javascript" src="vendor/granim_js/granim.min.js"></script>
+    <script type="text/javascript" src="assets/js/granim.js"></script>
 
   </body>
 
