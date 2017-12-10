@@ -12,10 +12,16 @@
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="assets/css/scrolling-nav.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+  
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+
+    <!-- Google Maps -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApq-PEfcIQwjR5iFBj9c0nq_y4DU_k-eE&libraries=places"></script>
 
 
   </head>
@@ -32,13 +38,13 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">●</a>
+              <a class="nav-link js-scroll-trigger" href="#page-top">●</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#services">●</a>
+              <a class="nav-link js-scroll-trigger" href="#question-section">●</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">●</a>
+              <a class="nav-link js-scroll-trigger" href="#result-section">●</a>
             </li>
           </ul>
         </div>
@@ -53,87 +59,52 @@
 
         <div class="form" role="form">
           <input type="text" id="zip-input" placeholder="enter your zip code"><br>
-          <a id="zip-submit" class="btn btn-outline-primary btn-lg js-scroll-trigger" href="#feel">Start</a>
+          <a id="zip-submit" class="btn btn-outline-primary btn-lg js-scroll-trigger" href="#question-section">Start</a>
         </div>
     </div>
     </header>
 
-    <section id="feel" class="vert-center">
-          <div class="container text-center col-md-6 align-self-center">
-            <h2 class="display-2">how do you feel?</h1>
-            <p class="lead"><em>"it's about the journey, not the desination" - someone</em></p>
-             <div class="form" role="form">
-                <button class="btn btn-outline-primary btn-lg feel-buttons" data-value="happy">Happy</button>
-                <button class="btn btn-outline-primary btn-lg feel-buttons" data-value="sad">Sad</button>
-                <button class="btn btn-outline-primary btn-lg feel-buttons" data-value="angry">Angry</button>
-                <button class="btn btn-outline-primary btn-lg feel-buttons" data-value="excited">Excited</button>
-              </div>
-                <h2 class="display-2">how do you feel?</h1>
-            <p class="lead"><em>"it's about the journey, not the desination" - someone</em></p>
-             <div class="form" role="form">
-                <button class="btn btn-outline-primary btn-lg feel-buttons" data-value="happy">Happy</button>
-                <button class="btn btn-outline-primary btn-lg feel-buttons" data-value="sad">Sad</button>
-                <button class="btn btn-outline-primary btn-lg feel-buttons" data-value="angry">Angry</button>
-                <button class="btn btn-outline-primary btn-lg feel-buttons" data-value="excited">Excited</button>
-              </div>
-                <h2 class="display-2">how do you feel?</h1>
-            <p class="lead"><em>"it's about the journey, not the desination" - someone</em></p>
-             <div class="form" role="form">
-                <button class="btn btn-outline-primary btn-lg feel-buttons" data-value="happy">Happy</button>
-                <button class="btn btn-outline-primary btn-lg feel-buttons" data-value="sad">Sad</button>
-                <button class="btn btn-outline-primary btn-lg feel-buttons" data-value="angry">Angry</button>
-                <button class="btn btn-outline-primary btn-lg feel-buttons" data-value="excited">Excited</button>
-              </div>
-                <h2 class="display-2">how do you feel?</h1>
-            <p class="lead"><em>"it's about the journey, not the desination" - someone</em></p>
-             <div class="form" role="form">
-                <button class="btn btn-outline-primary btn-lg feel-buttons" data-value="happy">Happy</button>
-                <button class="btn btn-outline-primary btn-lg feel-buttons" data-value="sad">Sad</button>
-                <button class="btn btn-outline-primary btn-lg feel-buttons" data-value="angry">Angry</button>
-                <button class="btn btn-outline-primary btn-lg feel-buttons" data-value="excited">Excited</button>
-              </div>
+    <section id="question-section" class="vert-center">
+
+          <div class="container text-center col-xs-10 col-md-8 align-self-center" id="question-div">
+
           </div>
+
     </section>
 
-    <section id="services" class="bg-light">
-      <div class="container">
+    <section id="result-section" class="bg-light container-fluid">
         <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2>Services we offer</h2>
-            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut optio velit inventore, expedita quo laboriosam possimus ea consequatur vitae, doloribus consequuntur ex. Nemo assumenda laborum vel, labore ut velit dignissimos.</p>
+          <div id="listings-column" class="bg-info col-xs-12 col-md-4" >
+            <h3>Results</h3>
+          </div>
+          <div id="map-column" class="bg-light col-md-8">
+               <div id="map-container" class="col-xs-12 col-md-12"></div>
           </div>
         </div>
-      </div>
     </section>
 
-    <section id="contact">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2>Contact us</h2>
-            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero odio fugiat voluptatem dolor, provident officiis, id iusto! Obcaecati incidunt, qui nihil beatae magnam et repudiandae ipsa exercitationem, in, quo totam.</p>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
-      </div>
-      <!-- /.container -->
-    </footer>
+    <!-- <footer class="py-5 bg-dark"> -->
+      <!-- <div class="container"> -->
+        <!-- <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p> -->
+      <!-- </div> -->
+    <!-- </footer> -->
+
+
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Project app.js file -->
+    <script src="assets/js/app.js"></script>
 
     <!-- Plugin JavaScript -->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom JavaScript for this theme -->
     <script src="assets/js/scrolling-nav.js"></script>
+
 
   </body>
 

@@ -20,13 +20,14 @@ header {
 
 header {
 	height: 100vh;
-/*	background-image: url("bg-pre.jpeg");
-*/	background-repeat: no-repeat;
+	background-image: url("bg-pre.jpeg");
+	background-repeat: no-repeat;
 	background-size: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
+
 
 .vert-center {
 	display: flex;
@@ -66,17 +67,36 @@ header {
 
 section {
   height: 100vh;
-
 }
 
-.feel-buttons {
+.question-buttons {
 	margin-top: 20px;
+	margin-right: 10px;
 	border: 2px solid black;
 	color: black;
 }
 
-.feel-buttons:hover {
+.question-buttons:hover {
 	background-color: rgba(0, 0, 0, 0.05);
 	border: 2px solid black;
 	color: black;
+}
+
+#listings-column {
+	color: white;
+	background-color: green;
+	height: 100vh;
+}
+
+#map-column {
+	height: 100vh;
+	padding: 0px;
+	margin: 0px;
+}
+
+#map-container {
+	height: 100%;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
 }
