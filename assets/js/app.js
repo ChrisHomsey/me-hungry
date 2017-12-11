@@ -15,7 +15,7 @@ var database = firebase.database();
 
 
 $('#question-section').hide();
-// $('#result-section').hide();
+$('#result-section').hide();
 
 //Start Button is pressed - User filled out Zip
 $('#zip-submit').click(function() {
@@ -155,32 +155,16 @@ var service;
 var markers = [];
 var geocoder;
 
-function initialize() {
-	//Geocoder init
-	geocoder = new google.maps.Geocoder(); 
-	var center = new google.maps.LatLng(41.5043413,-81.6105725);
+
+function queryZip(loc) {
+	geocoder = new google.maps.Geocoder();
+
+	var center = new google.maps.LatLng(0,0);
 	map = new google.maps.Map(document.getElementById('map-container'), {
 		center: center,
 		zoom: 13
-
 	});
 
-
-	request = {
-		location: center,
-		radius: 8047,
-		types: ['cafe']
-	};
-
-	infoWindow = new google.maps.InfoWindow();
-
-	service = new google.maps.places.PlacesService(map);
-
-	service.nearbySearch(request, callback);
-
-}
-
-function queryZip(loc) {
 	geocoder.geocode( { 'address': loc}, function(results, status) {
 		if (status == 'OK') {
 			map.setCenter(results[0].geometry.location);
@@ -190,11 +174,15 @@ function queryZip(loc) {
 			
 			var newRequest = {
 				location: results[0].geometry.location,
-				radius: 8047,
+				radius: 4828,
 				types: ['restaurant', 'bar'],
 				keyword: ['pizza', 'tacos']
 			};
 			
+			infoWindow = new google.maps.InfoWindow();
+
+			service = new google.maps.places.PlacesService(map);
+
 			service.nearbySearch(newRequest, callback);
 
 		} else {
@@ -240,5 +228,3 @@ $('#start-button').click( function(){
 	console.log("Query Zip Code: ", zipCode); 
 	queryZip(zipCode);
 })
-
-google.maps.event.addDomListener(window, 'load', initialize);
