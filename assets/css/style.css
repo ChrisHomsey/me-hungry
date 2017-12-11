@@ -2,6 +2,9 @@ body {
 	font-family: 'Lato', sans-serif;
 }
 
+nav {
+	border-bottom: 1px solid black ;
+}
 header {
   padding: 154px 0 100px;
 }
@@ -95,4 +98,69 @@ section {
 	width: 100%;
 	margin: 0px;
 	padding: 0px;
+}
+
+/*modal*/
+
+
+.modal.right.fade .modal-dialog {
+		right: -320px;
+		-webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+		   -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+		     -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+		        transition: opacity 0.3s linear, right 0.3s ease-out;
+}
+	
+.modal.right.fade.in .modal-dialog {
+	right: 0;
+}
+.modal-content {
+	border-radius: 0;
+	border: none;
+}
+
+.modal-header {
+	border-bottom-color: #EEEEEE;
+	background-color: #FAFAFA;
+}
+
+/*granim styles*/
+
+/*granim nav bar*/
+
+.bloc-logo {
+    position: relative;
+    width: 150px;
+    height: 65px;
+    float: left;
+    margin-top: -18px;
+    margin-bottom: -3px;
+}
+
+.bloc-logo canvas,
+.bloc-logo .logo-mask {
+    display: block;
+    width: 130px;
+    height: 50px;
+}
+
+.bloc-logo .logo-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: 130px;
+    background-image: url("../images/granim.png");
+    text-indent: -9999px;
+}
+
+/*granim header*/
+#canvas-basic {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
