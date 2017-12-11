@@ -1,8 +1,3 @@
-/*!
- * Start Bootstrap - Scrolling Nav (https://startbootstrap.com/template-overviews/scrolling-nav)
- * Copyright 2013-2017 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-scrolling-nav/blob/master/LICENSE)
- */
 
 body {
 	font-family: 'Lato', sans-serif;
@@ -20,8 +15,7 @@ header {
 
 header {
 	height: 100vh;
-/*	background-image: url("bg-pre.jpeg");
-*/	background-repeat: no-repeat;
+	background-repeat: no-repeat;
 	background-size: 100%;
 	display: flex;
 	justify-content: center;
@@ -66,7 +60,6 @@ header {
 
 section {
   height: 100vh;
-
 }
 
 .feel-buttons {
@@ -78,5 +71,58 @@ section {
 .feel-buttons:hover {
 	background-color: rgba(0, 0, 0, 0.05);
 	border: 2px solid black;
-	color: black;
+}
+
+#listings-column {
+	color: white;
+	height: 100vh;
+	width: 25vw;
+}
+
+#map-column {
+	height: 100vh;
+}
+
+@media screen and (max-width: 600px) {
+	#map-column {display: none; }
+}
+
+/*granim js styles*/
+
+
+.canvas-interactive-wrapper {
+    position: relative;
+    height: 300px;
+    text-align: center;
+}
+
+.canvas-interactive-wrapper canvas {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.canvas-interactive-wrapper .cta-wrapper {
+    margin-top: 130px;
+}
+
+.canvas-interactive-wrapper .cta-wrapper a {
+    position: relative;
+    display: inline-block;
+    padding: 3px 7px;
+    border: solid 1px transparent;
+    margin-right: 50px;
+    z-index: 1;
+    text-decoration: none;
+    color: #222;
+    transition: border .3s;
+}
+
+.canvas-interactive-wrapper .cta-wrapper a.active {
+    border-color: #222;
 }

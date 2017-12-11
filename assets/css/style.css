@@ -1,4 +1,3 @@
-
 body {
 	font-family: 'Lato', sans-serif;
 }
@@ -21,6 +20,7 @@ header {
 	justify-content: center;
 	align-items: center;
 }
+
 
 .vert-center {
 	display: flex;
@@ -62,67 +62,37 @@ section {
   height: 100vh;
 }
 
-.feel-buttons {
+.question-buttons {
 	margin-top: 20px;
+	margin-right: 10px;
 	border: 2px solid black;
 	color: black;
 }
 
-.feel-buttons:hover {
+.question-buttons:hover {
 	background-color: rgba(0, 0, 0, 0.05);
 	border: 2px solid black;
+	color: black;
 }
 
+#result-section h3{
+	margin-top: 5px;
+}
 #listings-column {
 	color: white;
+	background-color: green;
 	height: 100vh;
-	width: 25vw;
 }
 
 #map-column {
 	height: 100vh;
+	padding: 0px;
+	margin: 0px;
 }
 
-@media screen and (max-width: 600px) {
-	#map-column {display: none; }
-}
-
-/*granim js styles*/
-
-
-.canvas-interactive-wrapper {
-    position: relative;
-    height: 300px;
-    text-align: center;
-}
-
-.canvas-interactive-wrapper canvas {
-    position: absolute;
-    display: block;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-}
-
-.canvas-interactive-wrapper .cta-wrapper {
-    margin-top: 130px;
-}
-
-.canvas-interactive-wrapper .cta-wrapper a {
-    position: relative;
-    display: inline-block;
-    padding: 3px 7px;
-    border: solid 1px transparent;
-    margin-right: 50px;
-    z-index: 1;
-    text-decoration: none;
-    color: #222;
-    transition: border .3s;
-}
-
-.canvas-interactive-wrapper .cta-wrapper a.active {
-    border-color: #222;
+#map-container {
+	height: 100%;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
 }

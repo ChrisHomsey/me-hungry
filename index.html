@@ -17,6 +17,12 @@
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+  
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+
+    <!-- Google Maps -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApq-PEfcIQwjR5iFBj9c0nq_y4DU_k-eE&libraries=places"></script>
 
 
   </head>
@@ -24,7 +30,7 @@
   <body id="page-top">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="#page-top">me hungry</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,13 +39,13 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">●</a>
+              <a class="nav-link js-scroll-trigger" href="#page-top">●</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#services">●</a>
+              <a class="nav-link js-scroll-trigger" href="#question-section">●</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">●</a>
+              <a class="nav-link js-scroll-trigger" href="#result-section">●</a>
             </li>
           </ul>
         </div>
@@ -52,44 +58,31 @@
         <p>eat your emotions.</p>
           <div class="form" role="form">
             <input type="text" id="zip-input" placeholder="enter your zip code"><br>
-            <a id="zip-submit" class="btn btn-outline-primary btn-lg js-scroll-trigger" href="#feel">Start</a>
+            <a id="zip-submit" class="btn btn-outline-primary btn-lg js-scroll-trigger" href="#question-section">Start</a>
           </div>
       </div>
     </header>
 
-    <section id="feel" class="vert-center">
-      <div class="container col-md-6 text-center align-self-center canvas-interactive-wrapper">
-          <canvas id="canvas-interactive"></canvas>
-          <div class="cta-wrapper">
-            <h2 class="display-2">how do you feel?</h1>
-            <p class="lead"><em>tell us how you're feeling so we can get you to the right place</em></p>
-             <div class="form" role="form">
-                <a href="#default-state" id="default-state-cta" class="btn btn-outline-primary btn-lg feel-buttons active" data-value="happy">Happy</a>
-                <a href="violet-state" id="violet-state-cta" class="btn btn-outline-primary btn-lg feel-buttons" data-value="sad">Sad</a>
-                <a href="orange-state" id="orange-state-cta" class="btn btn-outline-primary btn-lg feel-buttons" data-value="angry">Angry</a>
-                <a href="orange-state" id="orange-state-cta" class="btn btn-outline-primary btn-lg feel-buttons" data-value="excited">Excited</a>
-              </div>
+    <section id="question-section" class="vert-center">
+
+          <div class="container text-center col-xs-10 col-md-8 align-self-center" id="question-div">
+
           </div>
-      </div>
+
     </section>
 
-    <section class="bg-light" id="results">
-      <div class="container-fluid">
+    <section id="result-section" class="bg-light text-center container-fluid">
         <div class="row">
-          <div id="listings-column" class="bg-info" >
-            <div class="col-12 col-md-4">
-              <h3>results</h3>
-            </div>
+          <div id="listings-column" class="bg-info col-xs-12 col-md-4" >
+            <h3>Results</h3>
           </div>
-            <div id="map-column" class="bg-light">
-               <div class="col-0 col-md-8">
-              <h3>map</h3>
-            </div>
+          <div id="map-column" class="bg-light col-md-8">
+               <div id="map-container" class="col-xs-12 col-md-12"></div>
           </div>
         </div>
-      </div>
     </section>
 
+ 
     <!-- Footer -->
     <footer class="py-3 bg-dark">
       <div class="container">
@@ -98,9 +91,21 @@
       <!-- /.container -->
     </footer>
 
+
+    <!-- <footer class="py-5 bg-dark"> -->
+      <!-- <div class="container"> -->
+        <!-- <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p> -->
+      <!-- </div> -->
+    <!-- </footer> -->
+
+
+
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Project app.js file -->
+    <script src="assets/js/app.js"></script>
 
     <!-- Plugin JavaScript -->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
@@ -108,9 +113,11 @@
     <!-- Custom JavaScript for this theme -->
     <script src="assets/js/scrolling-nav.js"></script>
 
+
     <!-- Granim JS -->
     <script type="text/javascript" src="vendor/granim_js/granim.min.js"></script>
     <script type="text/javascript" src="assets/js/granim.js"></script>
+
 
   </body>
 
