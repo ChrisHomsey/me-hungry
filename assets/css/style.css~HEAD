@@ -1,0 +1,128 @@
+
+body {
+	font-family: 'Lato', sans-serif;
+}
+
+header {
+  padding: 154px 0 100px;
+}
+
+@media (min-width: 992px) {
+  header {
+    padding: 156px 0 100px;
+  }
+}
+
+header {
+	height: 100vh;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.vert-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#zip-input {
+	margin: auto;
+	margin-top: 40px;
+	margin-bottom: 20px;
+	height: 2em;
+	font-size: 2em;
+	background: 0;
+	color: white;
+	border: 0;
+	border-bottom: 3px solid white;
+	outline: 0;
+	text-align: center;
+}
+
+#zip-input::placeholder {
+	color: white !important;
+
+}
+
+#zip-submit {
+	margin-top: 20px;
+	border: 2px solid white;
+	color: white;
+	
+}
+
+#zip-submit:hover {
+	background-color: rgba(255, 255, 255, 0.3);
+}
+
+section {
+  height: 100vh;
+}
+
+.feel-buttons {
+	margin-top: 20px;
+	border: 2px solid black;
+	color: black;
+}
+
+.feel-buttons:hover {
+	background-color: rgba(0, 0, 0, 0.05);
+	border: 2px solid black;
+}
+
+#listings-column {
+	color: white;
+	height: 100vh;
+	width: 25vw;
+}
+
+#map-column {
+	height: 100vh;
+}
+
+@media screen and (max-width: 600px) {
+	#map-column {display: none; }
+}
+
+/*granim js styles*/
+
+
+.canvas-interactive-wrapper {
+    position: relative;
+    height: 300px;
+    text-align: center;
+}
+
+.canvas-interactive-wrapper canvas {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.canvas-interactive-wrapper .cta-wrapper {
+    margin-top: 130px;
+}
+
+.canvas-interactive-wrapper .cta-wrapper a {
+    position: relative;
+    display: inline-block;
+    padding: 3px 7px;
+    border: solid 1px transparent;
+    margin-right: 50px;
+    z-index: 1;
+    text-decoration: none;
+    color: #222;
+    transition: border .3s;
+}
+
+.canvas-interactive-wrapper .cta-wrapper a.active {
+    border-color: #222;
+}
