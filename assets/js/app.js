@@ -182,7 +182,6 @@ function queryZip(loc) {
 			infoWindow = new google.maps.InfoWindow();
 
 			service = new google.maps.places.PlacesService(map);
-
 			service.nearbySearch(newRequest, callback);
 
 		} else {
@@ -205,6 +204,9 @@ function createMarker(place) {
 		map: map,
 		position: place.geometry.location
 	});
+
+	console.log(place);
+	$('#result-list').append('<li><h4>' + place.name + '</h4></li><hr>');
 
 	markers.push(marker);
 

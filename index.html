@@ -9,7 +9,7 @@
     <title>me hungry</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet">
@@ -29,32 +29,37 @@
   <body id="page-top">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark" id="main-navs">
+    <canvas id="canvas-basic"></canvas>    
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">me hungry</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top"><h1 class="display-6">me hungry</h1></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#page-top">●</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#question-section">●</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#result-section">●</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+          <li class="nav-item"><button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target=".bd-example-modal-lg">What is this?</button>
+          </li>
+        </ul>
+    </div>
+    </div>
+  </nav>
 
-    <header class="bg-primary text-white">
+  <!-- modal -->
+  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <h3>Welcome to Me Hungry!</h3>
+        <p>Feeling a little emotional and hungry at the same time? Is it too hard to make a decision about craving your hunger? Let us do the heavy lifting by being your emotional eating spirit guide.</p>
+        <p>Enter your zip code and answering a questions. It's as simple as that!</p>
+      </div>
+    </div>
+  </div>
+
+    <header class="text-white">
       
-      <div class="container text-center col-md-6 align-self-center">
-        <img src="assets/css/Light.png" style="width: 100%; height: 100%; margin:10px;"/>
+      <div class="container text-center col-md-6">
+        <img src="assets/images/Light.png" style="width: 100%; height: 100%; margin:10px;"/>
         <p>eat your emotions.</p>
 
         <div class="form" role="form">
@@ -74,8 +79,11 @@
 
     <section id="result-section" class="bg-light container-fluid">
         <div class="row">
-          <div id="listings-column" class="bg-info col-xs-12 col-md-4" >
-            <h3>Results</h3>
+          <div id="listings-column" class="bg-info col-xs-12 col-md-4">
+      
+            <ul id="result-list">
+              
+            </ul>
           </div>
           <div id="map-column" class="bg-light col-md-8">
                <div id="map-container" class="col-xs-12 col-md-12"></div>
@@ -93,14 +101,18 @@
 
 
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Granim JS -->
+    <script type="text/javascript" src="assets/js/granim.min.js"></script>
+    <script type="text/javascript" src="assets/js/granim.js"></script>
 
     <!-- Project app.js file -->
     <script src="assets/js/app.js"></script>
 
     <!-- Plugin JavaScript -->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="assets/js/jquery.easing.min.js"></script>
 
     <!-- Custom JavaScript for this theme -->
     <script src="assets/js/scrolling-nav.js"></script>
