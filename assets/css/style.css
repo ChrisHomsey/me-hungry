@@ -3,8 +3,27 @@ body {
 }
 
 nav {
-	border-bottom: 1px solid black ;
+	/*border-bottom: 3px solid black;*/
+	color: white;
 }
+
+.navbar-brand {
+	position: absolute;
+}
+
+.nav-item {
+	position: relative;
+}
+
+.btn-sm {
+	cursor: pointer;
+
+}
+
+nav h1 {
+	font-size: 1.5em;
+}
+
 header {
   padding: 154px 0 100px;
 }
@@ -15,8 +34,23 @@ header {
   }
 }
 
+.modal {
+	border-radius: 2px;
+}
+
+.modal .lead {
+	font-size: 1.0em;
+	font-style: italic;
+}
+
+.modal-content {
+	padding: 10px;
+}
+
+
 header {
 	height: 100vh;
+	background-image: url("../images/me-hungry.jpg");
 	background-repeat: no-repeat;
 	background-size: 100%;
 	display: flex;
@@ -103,60 +137,27 @@ section {
 /*modal*/
 
 
-.modal.right.fade .modal-dialog {
-		right: -320px;
-		-webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
-		   -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
-		     -o-transition: opacity 0.3s linear, right 0.3s ease-out;
-		        transition: opacity 0.3s linear, right 0.3s ease-out;
-}
-	
-.modal.right.fade.in .modal-dialog {
-	right: 0;
-}
-.modal-content {
-	border-radius: 0;
-	border: none;
-}
-
-.modal-header {
-	border-bottom-color: #EEEEEE;
-	background-color: #FAFAFA;
-}
-
 /*granim styles*/
 
 /*granim nav bar*/
 
-.bloc-logo {
-    position: relative;
-    width: 150px;
-    height: 65px;
-    float: left;
-    margin-top: -18px;
-    margin-bottom: -3px;
-}
-
-.bloc-logo canvas,
-.bloc-logo .logo-mask {
+canvas {
     display: block;
     width: 130px;
     height: 50px;
 }
 
-.bloc-logo .logo-mask {
+/*.bloc-logo .logo-mask {
     position: absolute;
     top: 0;
     left: 0;
     background-size: 130px;
-    background-image: url("../images/granim.png");
     text-indent: -9999px;
-}
+}*/
 
 /*granim header*/
 #canvas-basic {
     position: absolute;
-    display: block;
     width: 100%;
     height: 100%;
     top: 0;
@@ -164,3 +165,4 @@ section {
     bottom: 0;
     left: 0;
 }
+

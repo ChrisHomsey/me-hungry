@@ -29,95 +29,85 @@
   <body id="page-top">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top" id="main-navs">
-      <div class="container">
-        <div class="bloc-logo">
-          <canvas id="logo-canvas"></canvas>
-          <a class="navbar-brand js-scroll-trigger logo-mask" href="#page-top">logo</a>
-        </div>
+
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark" id="main-navs">
+  <canvas id="canvas-basic"></canvas>    
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top"><h1 class="display-6">me hungry</h1></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#myModal">What is this?</button>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    
-    <div class="modal right fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
-      <div class="modal-dialog" role="document">
-      <div class="modal-content">
+        <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><button type="button" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target=".bd-example-modal-lg">What is this?</button>
+        </li>
+      </ul>
+  </div>
+  </div>
+</nav>
 
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel2">Right Sidebar</h4>
-        </div>
-
-        <div class="modal-body">
-          <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-          </p>
-        </div>
-
-      </div><!-- modal-content -->
-    </div><!-- modal-dialog -->
-  </div><!-- modal -->
-    <header class="text-white">
-      <canvas id="canvas-basic"></canvas>
-      <div class="container text-center col-md-6 align-self-center">
-        <img src="assets/css/Light.png" style="width: 100%; height: 100%; margin:10px;"/>
-        <p>eat your emotions.</p>
-
-        <div class="form" role="form">
-          <input type="text" id="zip-input" placeholder="enter your zip code"><br>
-          <a id="zip-submit" class="btn btn-outline-primary btn-lg js-scroll-trigger" href="#question-section">Start</a>
-        </div>
+<!-- modal -->
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <h3>Welcome to Me Hungry!</h3>
+      <p>Feeling a little emotional and hungry at the same time? Is it too hard to make a decision about craving your hunger? Let us do the heavy lifting by being your emotional eating spirit guide.</p>
+      <p>Enter your zip code and answering a questions. It's as simple as that!</p>
     </div>
-    </header>
+  </div>
+</div>
 
-    <section id="question-section" class="vert-center">
-          <div class="container text-center col-xs-10 col-md-8 align-self-center" id="question-div">
-          </div>
-    </section>
+<header class="text-white">
+  <div class="container text-center col-md-6 align-self-center">
+    <img src="assets/css/Light.png" style="width: 100%; height: 100%; margin:10px;"/>
+    <p>eat your emotions.</p>
 
-    <section id="result-section" class="bg-light container-fluid">
-        <div class="row">
-          <div id="listings-column" class="bg-info col-xs-12 col-md-4" >
-            <h3>Results</h3>
-          </div>
-          <div id="map-column" class="bg-light col-md-8">
-               <div id="map-container" class="col-xs-12 col-md-12"></div>
-          </div>
-        </div>
-    </section>
+    <div class="form" role="form">
+      <input type="text" id="zip-input" placeholder="enter your zip code"><br>
+      <a id="zip-submit" class="btn btn-outline-primary btn-lg js-scroll-trigger" href="#question-section">Start</a>
+    </div>
+</div>
+</header>
 
-
-    <footer class="py-3 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Me Hungry &copy; 2017</p>
+<section id="question-section" class="vert-center">
+      <div class="container text-center col-xs-10 col-md-8 align-self-center" id="question-div">
       </div>
-    </footer>
+</section>
+
+<section id="result-section" class="bg-light container-fluid">
+    <div class="row">
+      <div id="listings-column" class="bg-info col-xs-12 col-md-4" >
+        <h3>Results</h3>
+      </div>
+      <div id="map-column" class="bg-light col-md-8">
+           <div id="map-container" class="col-xs-12 col-md-12"></div>
+      </div>
+    </div>
+</section>
 
 
+<footer class="py-3 bg-dark">
+  <div class="container">
+    <p class="m-0 text-center text-white">Me Hungry &copy; 2017</p>
+  </div>
+</footer>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Granim JS -->
-    <script type="text/javascript" src="vendor/granim_js/granim.min.js"></script>
-    <script type="text/javascript" src="assets/js/granim.js"></script>
-    <!-- Project app.js file -->
-    <script src="assets/js/app.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Plugin JavaScript -->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<!-- Granim JS -->
+<script type="text/javascript" src="vendor/granim_js/granim.min.js"></script>
+<script type="text/javascript" src="assets/js/granim.js"></script>
+<!-- Project app.js file -->
+<script src="assets/js/app.js"></script>
 
-    <!-- Custom JavaScript for this theme -->
-    <script src="assets/js/scrolling-nav.js"></script>
+<!-- Plugin JavaScript -->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom JavaScript for this theme -->
+<script src="assets/js/scrolling-nav.js"></script>
 
 
   </body>
