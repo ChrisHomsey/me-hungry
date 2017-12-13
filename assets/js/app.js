@@ -13,26 +13,87 @@
 // Assign the reference to the database to a variable named 'database'
 var database = firebase.database();
 
+var feeling;
+var lookingFor;
+var zipCode;
 
 $('#question-section').hide();
 $('#result-section').hide();
 
 //Start Button is pressed - User filled out Zip
 $('#zip-submit').click(function() {
-	$('#question-section').show();
-	displayQuestion(0);
+
+	var isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test($('#zip-input').val());
+	console.log(isValidZip);
+
+	if (isValidZip === true) {
+		$('#question-section').show();
+		displayQuestion(0);
+		zipCode = $('#zip-input').val();
+		database.ref('zip').set(zipCode);
+		console.log("Query Zip Code: " + zipCode); 
+	}else{
+		$('#zip-input').val('');
+		$('#zip-input').attr('placeholder', 'enter a valid zip code')
+	}
+
+	
 })
 
 //Submit Button is pressed
 $('#question-section').on('click', '#question-submit', function() {
-	var zipCode = $('#zip-input').val();
-	console.log("Query Zip Code: ", zipCode); 
 	queryZip(zipCode);
 })
 
+$('#view-previous').click(function(){
 
+	$('#result-section').show();
+
+	database.ref('lookingFor').once('value').then(function(snapshot){
+		console.log('Looking for: ' + snapshot.val());
+		lookingFor = snapshot.val();
+	});
+
+	database.ref('feeling').once('value').then(function(snapshot){
+		console.log('feeling: ' + snapshot.val());
+		feeling = snapshot.val();
+	});
+
+
+	database.ref('zip').once('value').then(function(snapshot){
+		console.log('Zip Code: ' + snapshot.val());
+		zipCode = snapshot.val();
+		queryZip(zipCode);
+	});
+
+})
+
+//Startover Button is pressed
+$('#result-section').on('click', '#startover-button', function() {
+	zipcode = null;
+	lookingFor = null;
+	feeling = null;
+	clearResults(markers);
+	$('#result-section').hide();
+	$('#question-section').hide();
+	console.log('RESET');
+})
 
 //Question functions
+
+var userQuery = {
+		food: {
+			happy: ['mexican food', 'burgers', 'breakfast', 'steak'],
+			sad: ['italian food', 'chinese food', 'BBQ', 'sushi'],
+			hungover: ['breakfast', 'diner', 'pizza'],
+			stressed: ['icecream', 'fast food']
+		},
+		drinks: {
+			alcoholic: ['bar', 'wine'],
+			caffeinated: ['cafe', 'coffee shop'],
+			healthy: ['smoothies', 'juices']
+		}
+}
 
 var questions = [
 	{
@@ -58,7 +119,19 @@ var questions = [
 
 ]
 
+
+
 var questionNumber = 0;
+
+database.ref('feeling').on("value", function(snapshot){
+	feeling = snapshot.val();
+})
+
+database.ref('lookingFor').on("value", function(snapshot) {
+	lookingFor = snapshot.val();
+})
+
+
 
 $('#question-section').on('click', '.question-buttons', function() {
 	
@@ -66,35 +139,30 @@ $('#question-section').on('click', '.question-buttons', function() {
 
 	switch (questionNumber) {
 		case 0:
-			var feeling = chosen;
+			database.ref('feeling').set(chosen);
+			feeling = chosen;
 			console.log( 'Currently feeling: ' + chosen);
 			questionNumber++;
 			displayQuestion(questionNumber);
 			break;
 		case 1:
-			var lookingFor = chosen;
-			console.log('Looking for: ' + chosen)
+			database.ref('lookingFor').set(chosen);
+			lookingFor = chosen;
+			console.log('Looking for: ' + chosen);
 
-			if (lookingFor === 'drinks') {
+			if ( chosen === 'drinks') {
 				questionNumber++;
 				displayQuestion(questionNumber);
 			}
-			if (lookingFor === 'food') {
+			if ( chosen === 'food') {
 				questionNumber = 3;
 				displayQuestion(questionNumber);
 			}
 
 			break;
 		case 2:
-			if (chosen === 'alcoholic') {
-				var drinkChoice = 'bar';
-			}
-			if (chosen === 'caffeinated') {
-				var drinkChoice = 'coffee';
-			}
-			if (chosen === 'healthy') {
-				var drinkChoice = 'smoothies'
-			}
+			feeling = chosen;
+			database.ref('feeling').set(chosen);
 
 			questionNumber++;
 			displayQuestion(questionNumber);
@@ -102,11 +170,17 @@ $('#question-section').on('click', '.question-buttons', function() {
 		case 3:
 
 			if (chosen === 'submit') {
+
+				console.log(userQuery[lookingFor][feeling]);
 				$('#result-section').show();
+				questionNumber = 0;
+				displayQuestion(questionNumber);
 			}
 
 			if (chosen === 'restart' ) {
 				questionNumber = 0;
+				feeling = null;
+				lookingFor = null;
 				displayQuestion(questionNumber);
 			}
 
@@ -171,12 +245,12 @@ function queryZip(loc) {
 			clearResults(markers);
 			callback();
 			console.log(results);
-			
+
 			var newRequest = {
 				location: results[0].geometry.location,
 				radius: 4828,
-				types: ['restaurant', 'bar'],
-				keyword: ['pizza', 'tacos']
+				types: ['restaurant', 'bar', 'cafe'],
+				keyword: userQuery[lookingFor][feeling]
 			};
 			
 			infoWindow = new google.maps.InfoWindow();
@@ -192,8 +266,13 @@ function queryZip(loc) {
 
 function callback(results, status) {
 	if(status == google.maps.places.PlacesServiceStatus.OK){
-		for (var i = 0; i < results.length; i++){
+		for (var i = 0; i < 6; i++){
 			createMarker(results[i]);
+			var $li = $('<li>').addClass('result-item');
+			$li.attr('data-result-num', i);
+			$li.attr('data-result-name', results[i].name);
+			$li.html('<span display="block"><h4>' + results[i].name + '</h4><h5>' + results[i].vicinity + '</h5></span><hr>')
+			$('#result-list').append($li);
 		}
 	}
 }
@@ -205,15 +284,15 @@ function createMarker(place) {
 		position: place.geometry.location
 	});
 
-	console.log(place);
-	$('#result-list').append('<li><h4>' + place.name + '</h4></li><hr>');
-
+	//Pushes each marker object into the markers array
 	markers.push(marker);
 
 	google.maps.event.addListener(marker, 'click', function() {
 		infoWindow.setContent(place.name);
 		infoWindow.open(map, this);
 	})
+
+
 	return marker;
 }
 
@@ -222,11 +301,20 @@ function clearResults(markers){
 		markers[m].setMap(null);
 	}
 	markers = [];
+	$('#result-list').empty();
+
 }
 
-//Interface
-$('#start-button').click( function(){
-	var zipCode = $('#zip-input').val();
-	console.log("Query Zip Code: ", zipCode); 
-	queryZip(zipCode);
+//Opens up the marker info window when result items are clicked in the side bar via function listClick()
+$('#result-section').on('click', '.result-item', function(){
+	var clickedName = $(this).attr('data-result-name')
+	var clickedNum = $(this).attr('data-result-num');
+	listClick(clickedName, clickedNum);
 })
+
+function listClick(name, num){
+	infoWindow.setContent(name);
+	infoWindow.open(map, markers[num]);
+}
+
+
